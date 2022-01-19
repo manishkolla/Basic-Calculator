@@ -1,0 +1,222 @@
+#defining a python class and method in it whoch stores all the names of the operations and various methods of operations
+class Calculator:
+  print("Welcome to the Python Calculator")
+  print()
+  print("The most fastest and reliable than a regular one")
+  def Calculator():
+    #displaying all the operations to the user to choose from
+    print("Select the operation")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Factorial")
+    print("6. Find x^n")
+    print("7. Find nth root of a number")
+    print("8. Logarithm with base e")
+    print("9. Logarithm with base n")
+    print("10. Exponential Function (e^x)")
+    print("11. Reciprocal Function")
+    print("12. Find the first n multiples of a number")
+    print("13. Find the factors of a number")
+    print("14. Next smallest palindrome")
+    print()
+#asking user to enter a number out of all the above operations and predefing all the possible errors like if the user entered any string insted of number or if the user does
+#does not enter any number and passes an enpty parameter
+    try:
+      choice= int(input("Enter your choice(1/2/3/4/5/6/7/8/9/10/12/13/14): "))
+      print()
+      #printing a statement if the user enteres any other number insted of the given number of operations
+      if choice!=1 and choice!=2 and choice!=3 and choice!=4 and choice!=5 and choice!=6 and choice!=7 and choice!=8 and choice!=9 and choice!=10 and choice!=11 and choice!=12 and choice!=12 and choice!=13 and choice!=14:
+        print("Rerun the code and Enter a valid number")
+      else:
+#defining addition set of peoperties if user entered 1
+#Addition Explained
+#asking the user for number of numbers to add and appending them to a list and using the sum function to find the total sum of the list
+        if choice==1:
+            numbers= int(input("How many numbers would you like to add: "))
+            def Addition(numbers):
+              num_list=[]
+              for x in range(numbers):
+                nums= int(input("Enter your number: "))
+                num_list.append(nums)
+              print("The sum of all ",numbers, "numbers entered is: ", sum(num_list))
+            Addition(numbers)
+#defining subtration set of rules
+#Subtraction Explained
+#asking user for two numberes and subtracting them
+        if choice==2:
+          firstnum= int(input("Enter your first number: "))
+          secondnum=int(input("Enter your second number: "))
+          def Subtraction(firstnum,secondnum):
+            result= firstnum-secondnum
+            print()
+            print("The difference between 2 numbers is: ", result)
+          Subtraction(firstnum,secondnum)
+#Defining multiplication set of rules
+#Multiplication Explained
+#Asking user for number of numbers to multiply and appending them to a list and using for loop to multiply each element in a list
+        if choice==3:
+          numbers= int(input("How many numbers would you like to multiple: "))
+          def Multiplication(numbers):
+            num_list=[]
+            product=1
+            for x in range(numbers):
+              nums= int(input("Enter a number to multiply: "))
+              num_list.append(nums)
+            for y in num_list:
+              product*=y
+              print()
+            print("The product of all", numbers, "numbers is", product)
+          Multiplication(numbers)
+#Defining division set of rules
+#Divison Explained
+#taking the divident and divisor from the user and using the floor divison to get the quotient and finding the remainder using the modulus function.
+#defining the zero divison error if the user id trying to divide a number with zero
+        if choice==4:
+            divident= int(input("Enter the divident to divide with: "))
+            divisor= int(input("Enter a divisor to divide: "))
+            def Division(divident,divisor):
+              print()
+              try:
+                print("The quotient of above two numbers is: ", divident/divisor)
+                print()
+                print("The remainder on dividing both the numbers is: ", divident%divisor)
+              except ZeroDivisionError:
+                print("Anynumber divided by a zero is infinity")
+            Division(divident,divisor)
+#Defining Factorial 
+#Factorial Explained
+#asking user for a number to find its factorial. Returning 1 if teh number is either zero or one. Using recurssion function and multiplying backwards to 1 from the given number.
+#Defing a recurssion error if the number entered is negative
+        if choice==5:
+          def factorial(number):
+            if number == 1 or 0:
+              return 1
+            else: 
+              try:
+                return number *factorial(number-1)
+              except RecursionError:
+                print("Please enter a positive number")
+          number = int(input("Enter a number:"))
+          print("Factorial of", number, "is: ",factorial(number))
+#Defing the properties to find x^n
+#asking user for x and n values and using the ** to calculate the value
+        if choice==6:
+          x= int(input("Find the value of x: "))
+          n= int(input("FInd the value of n: "))
+          def powerfunction(x,n):
+            print()
+            output= x**n
+            print("The value of ", x, "to the power of", n, "is: ", output)
+          powerfunction(x,n)
+#defing the properties for n th root of a number
+#asking the n value and finding its reciprocal value and using ** to find the nth root of a teh given number
+        if choice==7:
+          def rootfunction():
+            number= int(input("Enter a positive number: "))
+            n= int(input("Enter the value of n: "))
+            print()
+            powerval= 1.0/n
+            output= number**powerval
+            print("The ", n,"th/nd", "root of", number, "is: ", output)
+          rootfunction()
+#Defing the Loarithm properties
+#importing math module and finding the log value for a given number with base e
+#defining value error of the user enteres any other number other than the range of log function
+        if choice==8:
+          def Logarithm():
+            import math
+            number= int(input("Enter a positive number to find its log value: "))
+            if number<0:
+              print("Enter a positive number, the domain of log is (0,infinity)")
+            else:
+              try:
+                print("The log value of", number, "is", math.log(number))
+              except ValueError:
+                print("Log of zero is not defined")
+          Logarithm()
+#Defing the Loarithm properties
+#importing math module and finding the log value for a given number with base n
+##defining value error of the user enteres any other number other than the range of log function
+        if choice==9:
+          def Logarith_base():
+            import math
+            number= int(input("Enter a number to find its log: "))
+            base= int(input("Enter the base of log: "))
+            if number or base <0:
+              print("Enter a positive number, the domain of log is (0, infinity)")
+            print()
+            try:
+              print("The log of", number,"with base", base, "is:", math.log(number, base))
+            except ValueError:
+              print("Please enter a positive number, the domain of logarithm is (0,infinity)")
+          Logarith_base()
+#Defining the exponential value
+#defing the value of e and inputing the user entered number to its power
+        if choice==10:
+          def Exponentialfunction():
+            number= int(input("Enter a number to find its exponential value: "))
+            output= (2.71828)**number
+            print("The exponenial value of", number, "is", output)
+          Exponentialfunction()
+#Defining the reciprocal function
+#taking number from user and divining by 1
+        if choice==11:
+          number= int(input("Enter a number to find its reciprocal value: "))
+          def Reciprocal(number):
+            try:
+              output= 1/number
+              print("The reciprocal value of", number, "is:", output)
+            except ZeroDivisionError:
+              print("one divided by zero is infinity")
+          Reciprocal(number)
+#FInding the multiples of a number
+#using for loop to find the user required number of multiples of given number
+#looping through a range of number +1 to get its multiples
+        if choice==12:
+          def Multiples():
+            number= int(input("Enter a number to find its multiples: "))
+            multiples= int(input("How many multiples would you like to print: "))
+            print("The first", multiples, "multiples", "of", number, "are: " )
+            for x in range(number, number*multiples+1, number):
+              print(x)
+          Multiples()
+#Factors of a number
+#looping through a range of number+1 and returning the number if the remainder is zero
+        if choice==13:
+         def Factors():
+           number= int(input("Enter a number to find its factors: "))
+           print("Factors of", number, "are:", )
+           for x in range(1, number+1):
+             if number%x==0:
+               print(x)
+         Factors()
+        if choice==14:
+          def Palindrome():
+            number= int(input("Enter a palindrome/number: "))               
+            length=len(str(number))                                  
+            nxt_palindrome=""                                         
+            reverse= str(number)[::-1]                                 
+            if str(number)!= reverse:                                   
+              print("The entered number is not a palindrome, but still ")           
+            if str(number)!= reverse or str(number)== reverse:                                    
+              for x in range(10**length):                                  
+                nxt_palindrome= (number+1)+x                                
+                if str(nxt_palindrome)==str(nxt_palindrome)[::-1]:         
+                  print("The next palindrome is: ", nxt_palindrome)            
+                  break
+          Palindrome()                      
+#if the user does not enter any number prompting to enter a number insted of passing empty statement
+    except ValueError:
+      print("You haven't entered any number")       
+    print()
+  Calculator()
+#creating an endnote, if the user wanna continue the calculate method reruns if the user wanna continue
+  again= str(input("Do you want to continue(yes/no)?: "))
+  again= again.lower()
+  if again=="no":
+    print()
+    print("Thanks you for using Python Calculator")
+  if again=="yes":
+    Calculator()
